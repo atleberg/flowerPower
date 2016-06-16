@@ -6,11 +6,11 @@
 # Copyright 2015 Atle Krogstad Berg (mail@atleberg.com)
 #
 
+from config import *
 import os
 import sys
 import time
 import logging
-import ConfigParser
 
 __version__ = 0.1
 __author__ = 'Atle Krogstad Berg - mail@atleberg.com'
@@ -25,4 +25,3 @@ def main():
 
 if (__name__ == "__main__"):
 	main()
-
