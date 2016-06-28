@@ -11,7 +11,7 @@ import os
 import sys
 import time
 import logging
-import RPi.GPIO as gpio
+import RPi.GPIO as GPIO
 
 __version__ = 0.1
 __author__ = 'Atle Krogstad Berg - mail@atleberg.com'
@@ -23,9 +23,18 @@ __author__ = 'Atle Krogstad Berg - mail@atleberg.com'
 def main():
 	currentPath = os.path.dirname(os.path.abspath(sys.argv[0]))
 
-	print gpio.RPI_INFO
+	print GPIO.RPI_INFO
 
-	gpio.setmode(gpio.BCM)
+	GPIO.setmode(GPIO.BCM)
+	for currentPin in FP_PIN_CONFIG:
+		GPIO.setup(currentPin, GPIO.OUT)
+
+		#pwm = GPIO.PWM(currentPin, 500)
+		#pwm.start(100)
+
+	newPwm(50) # 0 - 100
+	pwm.ChangeDutyCycle(float(newPwm))
+
 
 if (__name__ == "__main__"):
 	main()
