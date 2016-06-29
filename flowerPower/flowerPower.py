@@ -25,15 +25,21 @@ def main():
 
 	print GPIO.RPI_INFO
 
+	motors = dict()
+
 	GPIO.setmode(GPIO.BCM)
 	for currentPin in FP_PIN_CONFIG:
 		GPIO.setup(currentPin, GPIO.OUT)
+		GPIO.output(currentPin, False)
 
 		#pwm = GPIO.PWM(currentPin, 500)
 		#pwm.start(100)
 
 	newPwm(50) # 0 - 100
 	pwm.ChangeDutyCycle(float(newPwm))
+
+	# Turn on
+	#GPIO.output(currentPin, False)
 
 
 if (__name__ == "__main__"):
